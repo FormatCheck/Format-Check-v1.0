@@ -1,5 +1,6 @@
 # import modules
 from docx import Document  # for accessing the document by python-docx
+from docx.shared import RGBColor  # for font colour
 import docx2txt as docx  # for accessing the document by docx2txt
 import streamlit as st  # for web app
 from PIL import Image  # for logo
@@ -47,6 +48,13 @@ def font_name():
         # print this if title_font is empty, since Title style was not found
         st.info("ℹ️Title style text font name not found as this style was not used.")
 
+    # check if default font ('None') was found in title_font
+    if any(i is None for i in title_font) and len(title_font) != 0:
+        st.warning('''
+        ⚠️Default font(s) found for Title style text.  
+        Check if this is due to modifications in the Title style settings.
+        ''')
+
     # TODO Font Name code for Heading 1 style text
     # check font name for Heading 1 style text (main headings) ********************
     h1_font = set()  # store all Heading 1 style font names in the set h1_font
@@ -75,6 +83,13 @@ def font_name():
     elif len(h1_font) == 0:
         # print this if h1_font is empty, since Heading 1 style was not found
         st.info("ℹ️Heading 1 style text font name not found as this style was not used.")
+
+    # check if default font ('None') was found in h1_font
+    if any(i is None for i in h1_font) and len(h1_font) != 0:
+        st.warning('''
+        ⚠️Default font(s) found for Heading 1 style text.  
+        Check if this is due to modifications in the Heading 1 style settings.
+        ''')
 
     # TODO Font Name code for Heading 2 style text
     # check font name for Heading 2 style text (sub headings) ********************
@@ -105,6 +120,13 @@ def font_name():
         # print this if h2_font is empty, since Heading 2 style was not found
         st.info("ℹ️Heading 2 style text font name not found as this style was not used.")
 
+    # check if default font ('None') was found in h2_font
+    if any(i is None for i in h2_font) and len(h2_font) != 0:
+        st.warning('''
+        ⚠️Default font(s) found for Heading 2 style text.  
+        Check if this is due to modifications in the Heading 2 style settings.
+        ''')
+
     # TODO Font Name code for Heading 3 style text
     # check font name for Heading 3 style text (sub headings) ********************
     h3_font = set()  # store all Heading 3 style font names in the set h3_font
@@ -133,6 +155,13 @@ def font_name():
     elif len(h3_font) == 0:
         # print this if h3_font is empty, since Heading 3 style was not found
         st.info("ℹ️Heading 3 style text font name not found as this style was not used.")
+
+    # check if default font ('None') was found in h3_font
+    if any(i is None for i in h3_font) and len(h3_font) != 0:
+        st.warning('''
+        ⚠️Default font(s) found for Heading 3 style text.  
+        Check if this is due to modifications in the Heading 3 style settings.
+        ''')
 
     # TODO Font Name code for Heading 4 style text
     # check font name for Heading 4 style text (sub headings) ********************
@@ -163,6 +192,13 @@ def font_name():
         # print this if h4_font is empty, since Heading 4 style was not found
         st.info("ℹ️Heading 4 style text font name not found as this style was not used.")
 
+    # check if default font ('None') was found in h4_font
+    if any(i is None for i in h4_font) and len(h4_font) != 0:
+        st.warning('''
+        ⚠️Default font(s) found for Heading 4 style text.  
+        Check if this is due to modifications in the Heading 4 style settings.
+        ''')
+
     # TODO Font Name code for Normal style text
     # check font name for Normal style text (body text/paragraphs) ********************
     norm_font = set()  # store all Normal style font names in the set norm_font
@@ -190,6 +226,13 @@ def font_name():
     elif len(norm_font) == 0:
         # print this if norm_font is empty, which means that Normal style was not found
         st.info("ℹ️Normal style text font name not found as this style was not used.")
+
+    # check if default font ('None') was found in norm_font
+    if any(i is None for i in norm_font) and len(norm_font) != 0:
+        st.warning('''
+        ⚠️Default font(s) found for Normal style text.  
+        Check if this is due to modifications in the Normal style settings.
+        ''')
 
     # TODO Font Name code for List Paragraph style text
     # check font name for List Paragraph style text (bullet list) ********************
@@ -220,6 +263,13 @@ def font_name():
         # print this if list_font is empty, since List Paragraph style was not found
         st.info("ℹ️List Paragraph style text font name not found as this style was not used.")
 
+    # check if default font ('None') was found in list_font
+    if any(i is None for i in list_font) and len(list_font) != 0:
+        st.warning('''
+        ⚠️Default font(s) found for List Paragraph style text.  
+        Check if this is due to modifications in the List Paragraph style settings.
+        ''')
+
     # TODO Font Name code for Caption style text
     # check font name for Caption style text (figure and table captions) ********************
     cap_font = set()  # store all Caption style font names in the set cap_font
@@ -248,6 +298,13 @@ def font_name():
     elif len(cap_font) == 0:
         # print this if cap_font is empty, since Caption style was not found
         st.info("ℹ️Caption style text font name not found as this style was not used.")
+
+    # check if default font ('None') was found in cap_font
+    if any(i is None for i in cap_font) and len(cap_font) != 0:
+        st.warning('''
+        ⚠️Default font(s) found for Caption style text.  
+        Check if this is due to modifications in the Caption style settings.
+        ''')
 
 
 # font size program function
@@ -290,6 +347,13 @@ def font_size():
         # print this if title_size is empty, since Title style was not found
         st.info("ℹ️Title style text font size not found as this style was not used.")
 
+    # check if default font size ('None') was found in title_size
+    if any(i is None for i in title_size) and len(title_size) != 0:
+        st.warning('''
+        ⚠️Default font size(s) found for Title style text.  
+        Check if this is due to modifications in the Title style settings.
+        ''')
+
     # TODO Font Size code for Heading 1 style text
     # check font size for Heading 1 style text (main headings) ********************
     h1_size = set()  # store all Heading 1 style font sizes in the set h1_size
@@ -321,6 +385,13 @@ def font_size():
     elif len(h1_size) == 0:
         # print this if h1_size is empty, since Heading 1 style was not found
         st.info("ℹ️Heading 1 style text font size not found as this style was not used.")
+
+    # check if default font size ('None') was found in h1_size
+    if any(i is None for i in h1_size) and len(h1_size) != 0:
+        st.warning('''
+        ⚠️Default font size(s) found for Heading 1 style text.  
+        Check if this is due to modifications in the Heading 1 style settings.
+        ''')
 
     # TODO Font Size code for Heading 2 style text
     # check font size for Heading 2 style text (sub headings) ********************
@@ -354,6 +425,13 @@ def font_size():
         # print this if h2_size is empty, since Heading 2 style was not found
         st.info("ℹ️Heading 2 style text font size not found as this style was not used.")
 
+    # check if default font size ('None') was found in h2_size
+    if any(i is None for i in h2_size) and len(h2_size) != 0:
+        st.warning('''
+        ⚠️Default font size(s) found for Heading 2 style text.  
+        Check if this is due to modifications in the Heading 1 style settings.
+        ''')
+
     # TODO Font Size code for Heading 3 style text
     # check font size for Heading 3 style text (sub headings) ********************
     h3_size = set()  # store all Heading 3 style font sizes in the set h3_size
@@ -385,6 +463,13 @@ def font_size():
     elif len(h3_size) == 0:
         # print this if h3_size is empty, since Heading 3 style was not found
         st.info("ℹ️Heading 3 style text font size not found as this style was not used.")
+
+    # check if default font size ('None') was found in h3_size
+    if any(i is None for i in h3_size) and len(h3_size) != 0:
+        st.warning('''
+        ⚠️Default font size(s) found for Heading 3 style text.  
+        Check if this is due to modifications in the Heading 3 style settings.
+        ''')
 
     # TODO Font Size code for Heading 4 style text
     # check font size for Heading 4 style text (sub headings) ********************
@@ -418,6 +503,13 @@ def font_size():
         # print this if h4_size is empty, since Heading 4 style was not found
         st.info("ℹ️Heading 4 style text font size not found as this style was not used.")
 
+    # check if default font size ('None') was found in h4_size
+    if any(i is None for i in h4_size) and len(h4_size) != 0:
+        st.warning('''
+        ⚠️Default font size(s) found for Heading 4 style text.  
+        Check if this is due to modifications in the Heading 4 style settings.
+        ''')
+
     # TODO Font Size code for Normal style text
     # check font size for Normal style text (body text/paragraphs) ********************
     norm_size = set()  # store all Normal style font sizes in the set norm_size
@@ -448,6 +540,13 @@ def font_size():
     elif len(norm_size) == 0:
         # print this if norm_size is empty, which means that Normal style was not found
         st.info("ℹ️Normal style text font size not found as this style was not used.")
+
+    # check if default font size ('None') was found in norm_size
+    if any(i is None for i in norm_size) and len(norm_size) != 0:
+        st.warning('''
+        ⚠️Default font size(s) found for Normal style text.  
+        Check if this is due to modifications in the Normal style settings.
+        ''')
 
     # TODO Font Size code for List Paragraph style text
     # check font size for List Paragraph style text (bullet list) ********************
@@ -481,6 +580,13 @@ def font_size():
         # print this if list_size is empty, since List Paragraph style was not found
         st.info("ℹ️List Paragraph style text font size not found as this style was not used.")
 
+    # check if default font size ('None') was found in list_size
+    if any(i is None for i in list_size) and len(list_size) != 0:
+        st.warning('''
+        ⚠️Default font size(s) found for List Paragraph style text.  
+        Check if this is due to modifications in the List Paragraph style settings.
+        ''')
+
     # TODO Font Size code for Caption style text
     # check font size for Caption style text (figure and table captions) ********************
     cap_size = set()  # store all Caption style font sizes in the set cap_size
@@ -513,6 +619,13 @@ def font_size():
         # print this if cap_size is empty, since Caption style was not found
         st.info("ℹ️Caption style text font size not found as this style was not used.")
 
+    # check if default font size ('None') was found in cap_size
+    if any(i is None for i in cap_size) and len(cap_size) != 0:
+        st.warning('''
+        ⚠️Default font size(s) found for Caption style text.  
+        Check if this is due to modifications in the Caption style settings.
+        ''')
+
 
 # font colour program function
 def font_colour():
@@ -527,14 +640,14 @@ def font_colour():
     title_color = set()  # store all Title style font colors in the set title_color
     title_wrong_color = set()  # store unacceptable Title style font colors in the set title_wrong_color
     title_wrong_color_words = sorted(set())  # store Title text that are in unacceptable font color in the sorted list title_wrong_color_words
-    CORRECT_FONT_COLOUR_TITLE = None  # state the specified font colour for Title style and store in the variable CORRECT_FONT_COLOUR_TITLE; None = default = Black (Automatic)
+    CORRECT_FONT_COLOUR_TITLE = RGBColor(0x00, 0x00, 0x00)  # state the specified font colour for Title style and store in the variable CORRECT_FONT_COLOUR_TITLE; RGBColor(0x00, 0x00, 0x00) = black from Theme colours (Black, Text 1)
     for paragraph in WordFile.paragraphs:
         if 'Title' == paragraph.style.name:
             for run in paragraph.runs:
                 # add font colors from each run into the set list_color
                 title_color.add(run.font.color.rgb)
                 # check if font colors are unacceptable, if so, store in the set title_wrong_color
-                if run.font.color.rgb is not CORRECT_FONT_COLOUR_TITLE:
+                if run.font.color.rgb != CORRECT_FONT_COLOUR_TITLE:
                     title_wrong_color.add(run.font.color.rgb)
                     # append Title text that contain unacceptable font colors in the sorted list title_wrong_color_words
                     title_wrong_color_words.append(run.text)
@@ -551,19 +664,26 @@ def font_colour():
         # print this if title_color is empty, which means that Title style was not found
         st.info("ℹ️Title style text font colour not found as this style was not used.")
 
+    # check if default font colour ('None') was found in title_color
+    if any(i is None for i in title_color) and len(title_color) != 0:
+        st.warning('''
+        ⚠️Default font colour(s) found for Title style text.  
+        Check if this is due to modifications in the Title style settings.
+        ''')
+
     # TODO Font Colour code for Heading 1 style text
     # check font colour for Heading 1 style text (main headings) ********************
     h1_color = set()  # store all Heading 1 style font colors in the set h1_color
     h1_wrong_color = set()  # store unacceptable Heading 1 style font colors in the set h1_wrong_color
     h1_wrong_color_words = sorted(set())  # store Heading 1 text that are in unacceptable font color in the sorted list h1_wrong_color_words
-    CORRECT_FONT_COLOUR_H1 = None  # state the specified font colour for Title style and store in the variable CORRECT_FONT_COLOUR_H1; None = default = Black (Automatic)
+    CORRECT_FONT_COLOUR_H1 = RGBColor(0x00, 0x00, 0x00)  # state the specified font colour for Heading 1 style and store in the variable CORRECT_FONT_COLOUR_H1; RGBColor(0x00, 0x00, 0x00) = black from Theme colours (Black, Text 1)
     for paragraph in WordFile.paragraphs:
         if 'Heading 1' == paragraph.style.name:
             for run in paragraph.runs:
                 # add font colors from each run into the set h1_color
                 h1_color.add(run.font.color.rgb)
                 # check if font colors are unacceptable, if so, store in the set h1_wrong_color
-                if run.font.color.rgb is not CORRECT_FONT_COLOUR_H1:
+                if run.font.color.rgb != CORRECT_FONT_COLOUR_H1:
                     h1_wrong_color.add(run.font.color.rgb)
                     # append Heading 1 text that contain unacceptable font colors in the sorted list h1_wrong_color_words
                     h1_wrong_color_words.append(run.text)
@@ -580,19 +700,26 @@ def font_colour():
         # print this if h1_color is empty, if so, this means that Heading 1 style was not found
         st.info("ℹ️Heading 1 style text font colour not found as this style was not used.")
 
+    # check if default font colour ('None') was found in h1_color
+    if any(i is None for i in h1_color) and len(h1_color) != 0:
+        st.warning('''
+        ⚠️Default font colour(s) found for Heading 1 style text.  
+        Check if this is due to modifications in the Heading 1 style settings.
+        ''')
+
     # TODO Font Colour code for Heading 2 style text
     # check font colour for Heading 2 style text (sub headings) ********************
     h2_color = set()  # store all Heading 2 style font colors in the set h2_color
     h2_wrong_color = set()  # store unacceptable Heading 2 style font colors in the set h2_wrong_color
     h2_wrong_color_words = sorted(set())  # store Heading 2 text that are in unacceptable font color in the sorted list h2_wrong_color_words
-    CORRECT_FONT_COLOUR_H2 = None  # state the specified font colour for Title style and store in the variable CORRECT_FONT_COLOUR_H2 ; None = default = Black (Automatic)
+    CORRECT_FONT_COLOUR_H2 = RGBColor(0x00, 0x00, 0x00)  # state the specified font colour for Heading 2 style and store in the variable CORRECT_FONT_COLOUR_H2 ; RGBColor(0x00, 0x00, 0x00) = black from Theme colours (Black, Text 1)
     for paragraph in WordFile.paragraphs:
         if 'Heading 2' == paragraph.style.name:
             for run in paragraph.runs:
                 # add font colors from each run into the set h1_color
                 h2_color.add(run.font.color.rgb)
                 # check if font colors are unacceptable, if so, store in the set h2_wrong_color
-                if run.font.color.rgb is not CORRECT_FONT_COLOUR_H2:
+                if run.font.color.rgb != CORRECT_FONT_COLOUR_H2:
                     h2_wrong_color.add(run.font.color.rgb)
                     # append Heading 2 text that contain unacceptable font colors in the sorted list h2_wrong_color_words
                     h2_wrong_color_words.append(run.text)
@@ -609,19 +736,26 @@ def font_colour():
         # print this if h2_color is empty, which means that Heading 2 style was not found
         st.info("ℹ️Heading 2 style text font colour not found as this style was not used.")
 
+    # check if default font colour ('None') was found in h2_color
+    if any(i is None for i in h2_color) and len(h2_color) != 0:
+        st.warning('''
+        ⚠️Default font colour(s) found for Heading 2 style text.  
+        Check if this is due to modifications in the Heading 2 style settings.
+        ''')
+
     # TODO Font Colour code for Heading 3 style text
     # check font colour for Heading 3 style text (sub headings) ********************
     h3_color = set()  # store all Heading 3 style font colors in the set h3_color
     h3_wrong_color = set()  # store unacceptable Heading 3 style font colors in the set h3_wrong_color
     h3_wrong_color_words = sorted(set())  # store Heading 3 text that are in unacceptable font color in the sorted list h3_wrong_color_words
-    CORRECT_FONT_COLOUR_H3 = None  # state the specified font colour for Title style and store in the variable CORRECT_FONT_COLOUR_H3; None = default = Black (Automatic)
+    CORRECT_FONT_COLOUR_H3 = RGBColor(0x00, 0x00, 0x00)  # state the specified font colour for Heading 3 style and store in the variable CORRECT_FONT_COLOUR_H3; RGBColor(0x00, 0x00, 0x00) = black from Theme colours (Black, Text 1)
     for paragraph in WordFile.paragraphs:
         if 'Heading 3' == paragraph.style.name:
             for run in paragraph.runs:
                 # add font colors from each run into the set h3_color
                 h3_color.add(run.font.color.rgb)
                 # check if font colors are unacceptable, if so, store in the set h3_wrong_color
-                if run.font.color.rgb is not CORRECT_FONT_COLOUR_H3:
+                if run.font.color.rgb != CORRECT_FONT_COLOUR_H3:
                     h3_wrong_color.add(run.font.color.rgb)
                     # append Heading 3 text that contain unacceptable font colors in the sorted list h3_wrong_color_words
                     h3_wrong_color_words.append(run.text)
@@ -638,19 +772,26 @@ def font_colour():
         # print this if h3_color is empty, which means that Heading 3 style was not found
         st.info("ℹ️Heading 3 style text font colour not found as this style was not used.")
 
+    # check if default font colour ('None') was found in h3_color
+    if any(i is None for i in h3_color) and len(h3_color) != 0:
+        st.warning('''
+        ⚠️Default font colour(s) found for Heading 3 style text.  
+        Check if this is due to modifications in the Heading 3 style settings.
+        ''')
+
     # TODO Font Colour code for Heading 4 style text
     # check font colour for Heading 4 style text (sub headings) ********************
     h4_color = set()  # store all Heading 4 style font colors in the set h4_color
     h4_wrong_color = set()  # store unacceptable Heading 4 style font colors in the set h4_wrong_color
     h4_wrong_color_words = sorted(set())  # store Heading 4 text that are in unacceptable font color in the sorted list h4_wrong_color_words
-    CORRECT_FONT_COLOUR_H4 = None  # state the specified font colour for Title style and store in the variable CORRECT_FONT_COLOUR_H4; None = default = Black (Automatic)
+    CORRECT_FONT_COLOUR_H4 = RGBColor(0x00, 0x00, 0x00)  # state the specified font colour for Heading 4 style and store in the variable CORRECT_FONT_COLOUR_H4; RGBColor(0x00, 0x00, 0x00) = black from Theme colours (Black, Text 1)
     for paragraph in WordFile.paragraphs:
         if 'Heading 4' == paragraph.style.name:
             for run in paragraph.runs:
                 # add font colors from each run into the set h4_color
                 h4_color.add(run.font.color.rgb)
                 # check if font colors are unacceptable, if so, store in the set h4_wrong_color
-                if run.font.color.rgb is not CORRECT_FONT_COLOUR_H4:
+                if run.font.color.rgb != CORRECT_FONT_COLOUR_H4:
                     h4_wrong_color.add(run.font.color.rgb)
                     # append Heading 4 text that contain unacceptable font colors in the sorted list h4_wrong_color_words
                     h4_wrong_color_words.append(run.text)
@@ -667,19 +808,26 @@ def font_colour():
         # print this if h4_color is empty, which means that Heading 4 style was not found
         st.info("ℹ️Heading 4 style text font colour not found as this style was not used.")
 
+    # check if default font colour ('None') was found in h4_color
+    if any(i is None for i in h4_color) and len(h4_color) != 0:
+        st.warning('''
+        ⚠️Default font colour(s) found for Heading 4 style text.  
+        Check if this is due to modifications in the Heading 4 style settings.
+        ''')
+
     # TODO Font Colour code for Normal style text
     # check font colour for normal style text (body text/paragraphs) ********************
     norm_color = set()  # store all Normal style font colors in the set norm_color
     norm_wrong_color = set()  # store unacceptable Normal style font colors in the set norm_wrong_color
     norm_wrong_color_words = sorted(set())  # store Normal text that are in unacceptable font color in the sorted list norm_wrong_color_words
-    CORRECT_FONT_COLOUR_NORM = None  # state the specified font colour for Title style and store in the variable CORRECT_FONT_COLOUR_NORM; None = default = Black (Automatic)
+    CORRECT_FONT_COLOUR_NORM = RGBColor(0x00, 0x00, 0x00)  # state the specified font colour for Normal style and store in the variable CORRECT_FONT_COLOUR_NORM; RGBColor(0x00, 0x00, 0x00) = black from Theme colours (Black, Text 1)
     for paragraph in WordFile.paragraphs:
         if 'Normal' == paragraph.style.name:
             for run in paragraph.runs:
                 # append font colors from each run into the set norm_color
                 norm_color.add(run.font.color.rgb)
                 # check if font colors are unacceptable, if so, store in the set norm_wrong_color
-                if run.font.color.rgb is not CORRECT_FONT_COLOUR_NORM:
+                if run.font.color.rgb != CORRECT_FONT_COLOUR_NORM:
                     norm_wrong_color.add(run.font.color.rgb)
                     # store Normal text that contain unacceptable font colors in the sorted list norm_wrong_color_words
                     norm_wrong_color_words.append(run.text)
@@ -695,19 +843,26 @@ def font_colour():
         # print this if norm_color is empty, which means that Normal style was not found
         st.info("ℹ️Normal style text font colour not found as this style was not used.")
 
+    # check if default font colour ('None') was found in norm_color
+    if any(i is None for i in norm_color) and len(norm_color) != 0:
+        st.warning('''
+        ⚠️Default font colour(s) found for Normal style text.  
+        Check if this is due to modifications in the Normal style settings.
+        ''')
+
     # TODO Font Colour code for List Paragraph style text
     # check font colour for List Paragraph style text (bullet list) ********************
     list_color = set()  # store all List Paragraph style font colors in the set list_color
     list_wrong_color = set()  # store unacceptable List Paragraph style font colors in the set list_wrong_color
     list_wrong_color_words = sorted(set())  # store List Paragraph text that are in unacceptable font color in the sorted list list_wrong_color_words
-    CORRECT_FONT_COLOUR_LIST = None  # state the specified font colour for Title style and store in the variable CORRECT_FONT_COLOUR_LIST; None = default = Black (Automatic)
+    CORRECT_FONT_COLOUR_LIST = RGBColor(0x00, 0x00, 0x00)  # state the specified font colour for List Paragraph style and store in the variable CORRECT_FONT_COLOUR_LIST; RGBColor(0x00, 0x00, 0x00) = black from Theme colours (Black, Text 1)
     for paragraph in WordFile.paragraphs:
         if 'List Paragraph' == paragraph.style.name:
             for run in paragraph.runs:
                 # add font colors from each run into the set list_color
                 list_color.add(run.font.color.rgb)
                 # check if font colors are unacceptable, if so, store in the set list_wrong_color
-                if run.font.color.rgb is not CORRECT_FONT_COLOUR_LIST:
+                if run.font.color.rgb != CORRECT_FONT_COLOUR_LIST:
                     list_wrong_color.add(run.font.color.rgb)
                     # append List Paragraph text that contain unacceptable font colors in the sorted list list_wrong_color_words
                     list_wrong_color_words.append(run.text)
@@ -724,19 +879,26 @@ def font_colour():
         # print this if list_color is empty, which means that List Paragraph style was not found
         st.info("ℹ️List Paragraph style text font colour not found as this style was not used.")
 
+    # check if default font colour ('None') was found in list_color
+    if any(i is None for i in list_color) and len(list_color) != 0:
+        st.warning('''
+        ⚠️Default font colour(s) found for List Paragraph style text.  
+        Check if this is due to modifications in the List Paragraph style settings.
+        ''')
+
     # TODO Font Colour code for Caption style text
     # check font colour for Caption style text (figure and table captions) ********************
     cap_color = set()  # store all Caption style font colors in the set cap_color
     cap_wrong_color = set()  # store unacceptable Caption style font colors in the set cap_wrong_color
     cap_wrong_color_words = sorted(set())  # store Caption text that are in unacceptable font color in the sorted list cap_wrong_color_words
-    CORRECT_FONT_COLOUR_CAP = None  # state the specified font colour for Title style and store in the variable CORRECT_FONT_COLOUR_CAP; None = default = Black (Automatic)
+    CORRECT_FONT_COLOUR_CAP = RGBColor(0x00, 0x00, 0x00)  # state the specified font colour for Caption style and store in the variable CORRECT_FONT_COLOUR_CAP; RGBColor(0x00, 0x00, 0x00) = black from Theme colours (Black, Text 1)
     for paragraph in WordFile.paragraphs:
         if 'Caption' == paragraph.style.name:
             for run in paragraph.runs:
                 # add font colors from each run into the set cap_color
                 cap_color.add(run.font.color.rgb)
                 # check if font colors are unacceptable, if so, store in the set cap_wrong_color
-                if run.font.color.rgb is not CORRECT_FONT_COLOUR_CAP:
+                if run.font.color.rgb != CORRECT_FONT_COLOUR_CAP:
                     cap_wrong_color.add(run.font.color.rgb)
                     # append Caption text that contain unacceptable font colors in the sorted list cap_wrong_color_words
                     cap_wrong_color_words.append(run.text)
@@ -752,6 +914,13 @@ def font_colour():
     elif len(cap_color) == 0:
         # print this if cap_color is empty, which means that Caption style was not found
         st.info("ℹ️Caption style text font colour not found as this style was not used.")
+
+    # check if default font colour ('None') was found in cap_color
+    if any(i is None for i in cap_color) and len(cap_color) != 0:
+        st.warning('''
+        ⚠️Default font colour(s) found for Caption style text.  
+        Check if this is due to modifications in the Caption style settings.
+        ''')
 
 
 # character formatting program function
@@ -1007,6 +1176,13 @@ def para_align():
     elif len(norm_align) == 0:
         st.info("ℹ️Normal style text paragraph alignment not found as this style was not used.")
 
+    # check if default paragraph alignment ('None') was found in norm_align
+    if any(i is None for i in norm_align) and len(norm_align) != 0:
+        st.warning('''
+        ⚠️Default paragraph alignment found for Normal style text.  
+        Check if this is due to modifications in the Normal style settings.
+        ''')
+
     # TODO Paragraph Alignment code for List Paragraph style text
     # check the paragraph alignment of all text formatted with the 'List Paragraph' style (bullet lists) ********************
     list_align = set()  # store all paragraph alignments in the set list_align
@@ -1034,6 +1210,13 @@ def para_align():
         # check if the set list_align is empty
     elif len(list_align) == 0:
         st.info("ℹ️List Paragraph style text paragraph alignment not found as this style was not used.")
+
+    # check if default paragraph alignment ('None') was found in list_align
+    if any(i is None for i in list_align) and len(list_align) != 0:
+        st.warning('''
+        ⚠️Default paragraph alignment found for List Paragraph style text.  
+        Check if this is due to modifications in the List Paragraph style settings.
+        ''')
 
 
 # spacing program function
@@ -1104,6 +1287,13 @@ def spacing():
     elif len(norm_para_l) == 0:
         # print this if norm_para_l is empty, since Normal style was not found
         st.info("ℹ️Normal style text line spacing not found as this style was not used.")
+
+    # check if default line spacing ('None') was found in norm_para_l
+    if any(i is None for i in norm_para_l) and len(norm_para_l) != 0:
+        st.warning('''
+        ⚠️Default line spacing found for Normal style text.  
+        Check if this is due to modifications in the Normal style settings.
+        ''')
 
     # TODO spacing after code for Normal style text
     # Check spacing after paragraph for all text formatted in the 'Normal' style (body text/paragraph) ********************
@@ -1197,6 +1387,13 @@ def spacing():
     elif len(list_para_l) == 0:
         # print this if list_para_l is empty, since List Paragraph style was not found
         st.info("ℹ️List Paragraph style text line spacing not found as this style was not used.")
+
+    # check if default line spacing ('None') was found in list_para_l
+    if any(i is None for i in list_para_l) and len(list_para_l) != 0:
+        st.warning('''
+        ⚠️Default line spacing found for List Paragraph style text.  
+        Check if this is due to modifications in the List Paragraph style settings.
+        ''')
 
     # TODO spacing after code for List Paragraph style text
     # Check spacing after paragraph for all text formatted in the 'List Paragraph' style (bullet list) ********************
